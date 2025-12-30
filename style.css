@@ -1,0 +1,19 @@
+
+body {
+    background-color: black;
+    color: lime;
+    font-family: monospace;
+}
+.console {
+    width: 90%;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid lime;
+}
+input, button {
+    background-color: black;
+    color: lime;
+    border: 1px solid lime;
+    padding: 10px;
+    margin-top: 10px;
+}

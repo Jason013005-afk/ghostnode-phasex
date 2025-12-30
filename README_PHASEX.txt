@@ -1,0 +1,1 @@
+Includes command handling for Phase X–XIV including mood shifts, failover simulation, and memory visualization trigger.

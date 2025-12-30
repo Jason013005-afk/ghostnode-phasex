@@ -1,49 +1,53 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Ghostnode Command Center</title>
-    <style>
-        body { font-family: monospace; background-color: #000; color: #0f0; margin: 0; padding: 20px; }
-        h1 { margin-bottom: 10px; }
-        #console-output { background: #111; padding: 15px; height: 300px; overflow-y: auto; border: 1px solid #0f0; }
-        #command-input { width: 100%; padding: 10px; background: #000; color: #0f0; border: 1px solid #0f0; }
-        #submit-btn { background: #0f0; color: #000; border: none; padding: 10px; cursor: pointer; margin-top: 10px; }
-        #status-panel { margin-top: 20px; border-top: 1px solid #0f0; padding-top: 10px; }
-    </style>
+  <meta charset="UTF-8" />
+  <title>Ghostnode Command Center</title>
+  <style>
+    body {
+      background-color: black;
+      color: lime;
+      font-family: 'Courier New', monospace;
+      padding: 20px;
+    }
+    .console-box {
+      border: 1px solid lime;
+      padding: 10px;
+      margin-bottom: 10px;
+      height: 300px;
+      overflow-y: scroll;
+      background-color: #000;
+    }
+    .input-box {
+      display: flex;
+      gap: 10px;
+    }
+    .input-box input {
+      flex: 1;
+      padding: 10px;
+      background: black;
+      color: lime;
+      border: 1px solid lime;
+    }
+    .input-box button {
+      background: lime;
+      color: black;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-    <h1>Ghostnode Command Center</h1>
-    <div id="console-output">System Activated...</div>
-    <input type="text" id="command-input" placeholder="Enter command here" />
-    <button id="submit-btn">Execute</button>
+  <h1>Ghostnode Command Center</h1>
+  <div id="consoleOutput" class="console-box">System Activated...</div>
+  <div class="input-box">
+    <input type="text" id="commandInput" placeholder="Enter command here" />
+    <button id="executeBtn">Execute</button>
+  </div>
+  <h3>Agent Status</h3>
+  <div id="agentStatus">Waiting for input...</div>
 
-    <div id="status-panel">
-        <h3>Agent Status</h3>
-        <div id="agent-status">Waiting for input...</div>
-    </div>
-
-    <script src="core.js"></script>
-    <script src="command-console.js"></script>
-    <script src="prompt-to-action.js"></script>
-    <script src="nafl-core.js"></script>
-    <script src="decision-integrity-scan.js"></script>
-    <script src="live-dashboard.js"></script>
-
-    <script>
-        document.getElementById('submit-btn').addEventListener('click', () => {
-            const input = document.getElementById('command-input').value;
-            document.getElementById('console-output').innerHTML += `<br>> ${input}`;
-            if (typeof processCommand === 'function') {
-                const response = processCommand(input); // defined in command-console.js
-                if (response) {
-                    document.getElementById('console-output').innerHTML += `<br>${response}`;
-                }
-            }
-            document.getElementById('command-input').value = '';
-        });
-    </script>
+  <script src="command-console.js"></script>
 </body>
 </html>
